@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React  from 'react'
 
 import {
   BrowserRouter as Router,
@@ -14,9 +14,10 @@ import AllChampions from '../pages/AllChampions';
 
 
 const RouterApp = () => {
+    console.log('Soy routerApp')
     return (
-        <Router basename='lol'>
-            <Fragment>
+        <Router basename='/lol'>
+            <div style={{ backgroundColor: '#f3f3f34f'}}>
 
                 <Nav 
                 logo='https://static.developer.riotgames.com/img/logo.png'
@@ -24,13 +25,13 @@ const RouterApp = () => {
                 />
 
                 <Switch>
-                    <Route exact path='/' component={ AllChampions }></Route>
+                    <Route exact path='/lol' component={ AllChampions }></Route>
 
-                    <Redirect to='/' />
+                    <Redirect to='/lol' />
 
                 </Switch>
 
-            </Fragment>
+            </div>
         </Router>
 
     );
