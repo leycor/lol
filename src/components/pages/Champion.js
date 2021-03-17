@@ -21,6 +21,7 @@ const Champion = () => {
 
 
     useEffect(() => {
+        window.scrollTo({top:0})
         getChampionData(paramIdChampion );
     }, [paramIdChampion ])
 
@@ -31,7 +32,7 @@ const Champion = () => {
                 loading ?
                 (
                     <div className='h-screen flex items-center justify-center'>
-                        <p className='font-poppins font-semibold text-base uppercase'>Cargando datos</p>
+                        <p className='font-poppins font-semibold text-base uppercase'>LOADING</p>
                     </div>
                 )
                 :
@@ -59,7 +60,7 @@ const Champion = () => {
 
                                 {/* Lore */}
                                 <p className='font-semibold font-poppins text-sm text-white uppercase mb-1'>LORE</p>
-                                <p className='text-gray-300 text-sm font-base font-poppins mb-10'>{champion.lore}</p>
+                                <p dangerouslySetInnerHTML={{__html:champion.lore}} className='text-gray-300 text-sm font-base font-poppins mb-10'></p>
 
                             </div>
                         </div>

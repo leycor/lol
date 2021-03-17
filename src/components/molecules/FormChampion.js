@@ -24,15 +24,17 @@ const FormChampion = ({champions}) => {
         <form onSubmit={ handleSearchChampion } className='flex flex-col'>
 
             <div className='flex flex-col items-center'>
-                {
-                championInput === '' || championInput === 'El campeon no existe'?
-                <p className='text-center font-poppins text-gray-700 mb-2'>{ championInput }</p>
-                : 
-                <CardChampion
-                id={championInput.id} 
-                name={championInput.name}  
-                title={championInput.title} tags={championInput.tags}/>
-                }
+                <div className='flex justify-center items-center px-2 h-36 mb-3'>
+                    {
+                    championInput === '' || championInput === 'El campeon no existe'?
+                    <p className='mt-auto text-center font-poppins text-gray-700 mb-2'>{ championInput }</p>
+                    : 
+                    <CardChampion
+                    id={championInput.id} 
+                    name={championInput.name}  
+                    title={championInput.title} tags={championInput.tags}/>
+                    }
+                </div>
 
                 <input 
                 type='text' 
@@ -46,7 +48,7 @@ const FormChampion = ({champions}) => {
 
                 <input 
                 type='submit' 
-                value='Buscar' 
+                value='Search' 
                 className='focus:outline-none cursor-pointer uppercase p-2  border-2 border-red-800 text-white  font-poppins font-medium bg-red-800 mb-5' />
         </form>
         </Fragment>

@@ -4,6 +4,8 @@ const ChampionSpells = ({passive, spells, id}) => {
 
     const [championSpell, setChampionSpell] = useState({ name: '', description:''})
 
+    // const passiveDescription = { _html}
+
     const handleChangeSpell = (e) => {
         
         const idChampion = e.currentTarget.name
@@ -28,7 +30,7 @@ const ChampionSpells = ({passive, spells, id}) => {
                 className='mr-4 w-20 h-20 object-cover'/>
                 <div>
                     <p className='font-semibold font-poppins text-sm text-white uppercase mb-1'>{passive.name}</p>
-                    <p className='font-base font-poppins text-sm text-gray-300 mb-8'>{passive.description}</p>
+                    <p dangerouslySetInnerHTML={{__html:passive.description}}className='font-base font-poppins text-sm text-gray-300 mb-8'></p>
                 </div>
             </div>
 
@@ -50,7 +52,7 @@ const ChampionSpells = ({passive, spells, id}) => {
 
                 </div>
                 <p className='font-semibold font-poppins text-sm text-white uppercase mb-1'>{championSpell.name}</p>
-                <p className='font-base font-poppins text-sm text-gray-300 mb-12'>{championSpell.description}</p>
+                <p dangerouslySetInnerHTML={{__html:championSpell.description}} className='font-base font-poppins text-sm text-gray-300 mb-12'></p>
             </div>
 
         </div>

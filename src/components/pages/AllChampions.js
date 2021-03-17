@@ -55,9 +55,9 @@ const AllChampions = () => {
 
                 {/* Banner Principal */}
                 <Banner
-                title1 = 'Elige tu'
-                title2 = 'Campeón'
-                subtitle= 'Con más de 140 campeones, encontrarás el que se ajuste perfectamente a tu estilo de juego. Domina a uno o domínalos a todos.'
+                title1 = 'CHOOSE YOUR'
+                title2 = 'CHAMPION'
+                subtitle= 'With more than 140 champions, you’ll find the perfect match for your playstyle. Master one, or master them all.'
                 />
 
                 {
@@ -102,7 +102,7 @@ const AllChampions = () => {
                         </Fragment>
                     )
                     :(
-                        <p className='bg-gray-800 p-4 text-white text-center font-medium font-poppins uppercase'>Cargando Campeones ...</p>
+                        <p className='bg-gray-800 p-4 text-white text-center font-medium font-poppins uppercase'>LOADING ...</p>
                     )
                 }
 
