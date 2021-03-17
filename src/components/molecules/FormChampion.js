@@ -13,7 +13,7 @@ const FormChampion = ({champions}) => {
         e.preventDefault();
         console.log(search)
         const championInput = champions.find( champion => champion.name.toLocaleLowerCase() === search.toLocaleLowerCase())
-        championInput !== undefined ? setchampionInput( championInput ) : setchampionInput('El campeon no existe')
+        championInput !== undefined ? setchampionInput( championInput ) : setchampionInput('Does not exist')
         setSearch('')
 
     }
@@ -26,7 +26,7 @@ const FormChampion = ({champions}) => {
             <div className='flex flex-col items-center'>
                 <div className='flex justify-center items-center px-2 h-36 mb-3'>
                     {
-                    championInput === '' || championInput === 'El campeon no existe'?
+                    championInput === '' || championInput === 'Does not exist'?
                     <p className='mt-auto text-center font-poppins text-gray-700 mb-2'>{ championInput }</p>
                     : 
                     <CardChampion
