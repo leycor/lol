@@ -12,7 +12,7 @@ const AllChampions = () => {
 
 
     // Tipos de campeones
-    const championTagNameList = ['Tank Mage Figther Assassin Support Marksman','Tank', 'Fighther', 'Assassin', 'Mage', 'Marksman']
+    const championTagNameList = ['Tank Mage Figther Assassin Support Marksman','Tank', 'Fighter', 'Assassin', 'Mage', 'Marksman', 'Support']
 
 
 
@@ -32,8 +32,9 @@ const AllChampions = () => {
     // Recibe el Tags para filtrar la lista de campeones, si el tags ya está disponible no hace falta tilrar.
     const handleChangeTags = (e) => {
         const tag = e.target.name
-        if(tagNameList !== tag){
 
+        if( tagNameList !== tag ) {
+            
             const newList = champions.filter(({tags})=> tags.includes(tag) )
             setChampionWithTags({championWithTags: newList, tagNameList:tag})
         }
