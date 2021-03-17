@@ -5,7 +5,6 @@ import CardChampion from '../molecules/CardChampion'
 
 const AllChampions = () => {
 
-    console.log('Me estoy ejecutando')
     // Lista de todos los campeones
     const [championsState, setChampions] = useState( { champions: [], loading: true,})
     const { champions, loading } = championsState
@@ -37,7 +36,6 @@ const AllChampions = () => {
 
             const newList = champions.filter(({tags})=> tags.includes(tag) )
             setChampionWithTags({championWithTags: newList, tagNameList:tag})
-            console.log('Estoy Filtrando campeones')
         }
         
     }

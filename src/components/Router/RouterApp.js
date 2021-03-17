@@ -15,7 +15,6 @@ import Champion from '../pages/Champion';
 
 
 const RouterApp = () => {
-    console.log('Soy routerApp')
     return (
         <Router basename='lol'>
             <div style={{ backgroundColor: '#f3f3f34f'}}>
