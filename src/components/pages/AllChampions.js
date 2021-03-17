@@ -2,6 +2,7 @@ import React, { Fragment, useEffect, useState } from 'react'
 import Banner from '../molecules/Banner'
 import ButtonFilter from '../molecules/ButtonFilter'
 import CardChampion from '../molecules/CardChampion'
+import FormChampion from '../molecules/FormChampion'
 
 const AllChampions = () => {
 
@@ -9,9 +10,8 @@ const AllChampions = () => {
     const [championsState, setChampions] = useState( { champions: [], loading: true,})
     const { champions, loading } = championsState
 
-    // Estado de buscador
-    const [search, setSearch] = useState('')
 
+    // Tipos de campeones
     const championTagNameList = ['Tank Mage Figther Assassin Support Marksman','Tank', 'Fighther', 'Assassin', 'Mage', 'Marksman']
 
 
@@ -38,12 +38,6 @@ const AllChampions = () => {
             setChampionWithTags({championWithTags: newList, tagNameList:tag})
         }
         
-    }
-
-    // Busca campeones
-    const handleSearchChampion = (e) => {
-        e.preventDefault();
-        console.log(e.target.value)
     }
 
     // Recibir todos los campeones | Colocarlos en una lista | Actualizar State
@@ -73,21 +67,10 @@ const AllChampions = () => {
                             <div className='flex flex-col items-center justify-center flex-wrap mb-5'>
 
                                 {/* Buscador */}
-                                <form onSubmit={ handleSearchChampion }>
-                                    <input 
-                                    type='text' 
-                                    placeholder='Search...' 
-                                    className='text-center focus:outline-none border-2 border-gray-700 mb-5 p-3 mr-3' 
-                                    autoComplete='false'
-                                    value={ search }
-                                    onChange={ (e)=> setSearch(e.target.value) }
-                                    />
+                                <FormChampion 
+                                champions={ champions } 
+                                />
 
-                                    <input 
-                                    type='submit' 
-                                    value='Buscar' 
-                                    className='focus:outline-none cursor-pointer uppercase p-3  border-2 border-red-800 text-white  font-poppins font-medium bg-red-800' />
-                                </form>
 
                                 {/* Filtro de campeones */}
                                 <div className='bg-gray-800'>
