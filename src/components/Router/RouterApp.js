@@ -10,13 +10,14 @@ import {
 // Molecules
 import Nav from '../molecules/Nav';
 import AllChampions from '../pages/AllChampions';
+import Champion from '../pages/Champion';
 
 
 
 const RouterApp = () => {
     console.log('Soy routerApp')
     return (
-        <Router basename='/lol'>
+        <Router basename='lol'>
             <div style={{ backgroundColor: '#f3f3f34f'}}>
 
                 <Nav 
@@ -25,9 +26,10 @@ const RouterApp = () => {
                 />
 
                 <Switch>
-                    <Route exact path='/lol' component={ AllChampions }></Route>
+                    <Route exact path='/' component={ AllChampions }></Route>
+                    <Route exact path='/:champion' component={ Champion }></Route>
 
-                    <Redirect to='/lol' />
+                    <Redirect to='/' />
 
                 </Switch>
 

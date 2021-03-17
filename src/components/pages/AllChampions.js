@@ -1,4 +1,6 @@
-import React, { Fragment, useEffect, useMemo, useState } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
+import Banner from '../molecules/Banner'
+import ButtonFilter from '../molecules/ButtonFilter'
 import CardChampion from '../molecules/CardChampion'
 
 const AllChampions = () => {
@@ -7,6 +9,13 @@ const AllChampions = () => {
     // Lista de todos los campeones
     const [championsState, setChampions] = useState( { champions: [], loading: true,})
     const { champions, loading } = championsState
+
+    // Estado de buscador
+    const [search, setSearch] = useState('')
+
+    const championTagNameList = ['Tank Mage Figther Assassin Support Marksman','Tank', 'Fighther', 'Assassin', 'Mage', 'Marksman']
+
+
 
     // Lista de campeones filtrados
     const [championWithTagsState , setChampionWithTags ] = useState({ championWithTags: [], tagNameList:''} )
@@ -33,6 +42,12 @@ const AllChampions = () => {
         
     }
 
+    // Busca campeones
+    const handleSearchChampion = (e) => {
+        e.preventDefault();
+        console.log(e.target.value)
+    }
+
     // Recibir todos los campeones | Colocarlos en una lista | Actualizar State
     const getData = async() => {
         const respChampion = await fetch('http://ddragon.leagueoflegends.com/cdn/11.5.1/data/en_US/champion.json')
@@ -44,60 +59,56 @@ const AllChampions = () => {
 
     return (
 
-            <section className='px-5 md:px-10 mx-auto mb-10'>
-                
-                {/* Título principal */}
-                <div className='text-center font-poppins mb-12'>
-                    <p className='text-2xl font-medium text-gray-800 uppercase mb-2'>Elige tu</p>
-                    <p className='text-5xl font-semibold uppercase text-gray-900 mb-5'>Campeón</p>
-                    <p className='text-gray-800 text-sm'>Con más de 140 campeones, encontrarás el que se ajuste perfectamente a tu estilo de juego. Domina a uno o domínalos a todos.</p>
-                </div>
+            <section className='container px-5 md:px-10 mx-auto mt-10 mb-10'>
 
+                {/* Banner Principal */}
+                <Banner
+                title1 = 'Elige tu'
+                title2 = 'Campeón'
+                subtitle= 'Con más de 140 campeones, encontrarás el que se ajuste perfectamente a tu estilo de juego. Domina a uno o domínalos a todos.'
+                />
 
-                {/* Lista de campeones */}
                 {
                     !loading
                     ?(  
                         <Fragment>
-                            <div className='flex justify-center flex-wrap mb-5'>
+                            <div className='flex flex-col items-center justify-center flex-wrap mb-5'>
+
+                                {/* Buscador */}
+                                <form onSubmit={ handleSearchChampion }>
+                                    <input 
+                                    type='text' 
+                                    placeholder='Search...' 
+                                    className='text-center focus:outline-none border-2 border-gray-700 mb-5 p-3 mr-3' 
+                                    autoComplete='false'
+                                    value={ search }
+                                    onChange={ (e)=> setSearch(e.target.value) }
+                                    />
+
+                                    <input 
+                                    type='submit' 
+                                    value='Buscar' 
+                                    className='focus:outline-none cursor-pointer uppercase p-3  border-2 border-red-800 text-white  font-poppins font-medium bg-red-800' />
+                                </form>
+
+                                {/* Filtro de campeones */}
                                 <div className='bg-gray-800'>
-                                    <button 
-                                    onClick={(e, champions, tagNameList) => handleChangeTags(e, champions, tagNameList) }
-                                    className=' focus:outline-none hover:text-red-300 p-3 mx-2 uppercase text-white font-poppins font-medium text-base' name='Tank Mage Figther Assassin Support Marksman'>Todos
-                                    </button>
-
-                                    <button 
-                                    onClick={(e,tagNameList, champions) => handleChangeTags(e, tagNameList, champions) }
-                                    className=' focus:outline-none hover:text-gray-300 p-3 mx-2 uppercase text-white font-poppins font-medium text-base' name='Tank'>Tanks
-                                    </button>
-
-                                    <button 
-                                    onClick={(e,tagNameList, champions) => handleChangeTags(e, tagNameList, champions) }
-                                    className=' focus:outline-none hover:text-gray-300 p-3 mx-2 uppercase text-white font-poppins font-medium text-base' name='Fighter'>Fighter
-                                    </button>
-
-                                    <button 
-                                    onClick={(e,tagNameList, champions) => handleChangeTags(e, tagNameList, champions) }
-                                    className=' focus:outline-none hover:text-gray-300 p-3 mx-2 uppercase text-white font-poppins font-medium text-base' name='Assassin'>Assassin
-                                    </button>
-
-                                    <button 
-                                    onClick={(e,tagNameList, champions) => handleChangeTags(e, tagNameList, champions) }
-                                    className=' focus:outline-none hover:text-gray-300 p-3 mx-2 uppercase text-white font-poppins font-medium text-base' name='Mage'>Mage
-                                    </button>
-
-                                    <button 
-                                    onClick={(e,tagNameList, champions) => handleChangeTags(e, tagNameList, champions) }
-                                    className=' focus:outline-none hover:text-gray-300 p-3 mx-2 uppercase text-white font-poppins font-medium text-base' name='Marksman'>Marksman
-                                    </button>
-
-                                    <button 
-                                    onClick={(e,tagNameList, champions) => handleChangeTags(e, tagNameList, champions) }
-                                    className=' focus:outline-none hover:text-gray-300 p-3 mx-2 uppercase text-white font-poppins font-medium text-base' name='Support'>Support
-                                    </button>
+                                    {
+                                        championTagNameList.map( tag =>
+                                            <ButtonFilter
+                                            key={ tag }
+                                            handleChangeTags={ handleChangeTags }
+                                            tagNameList={ tagNameList }
+                                            champions = { champions}
+                                            name={ tag }
+                                            />
+                                        )
+                                    }
 
                                 </div>
                             </div>
+
+                            {/* Listar campeones */}
                             <div className='flex flex-wrap justify-center'>
                             {
                                 championWithTags.length > 0
