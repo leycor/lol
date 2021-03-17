@@ -10,9 +10,9 @@ const AllChampions = () => {
     const [championsState, setChampions] = useState( { champions: [], loading: true,})
     const { champions, loading } = championsState
 
-
-    // Tipos de campeones
-    const championTagNameList = ['Tank Mage Figther Assassin Support Marksman','Tank', 'Fighter', 'Assassin', 'Mage', 'Marksman', 'Support']
+    const [championTagNameList] = useState(
+        ['Tank Mage Figther Assassin Support Marksman','Tank', 'Fighter', 'Assassin', 'Mage', 'Marksman', 'Support']
+    )
 
 
 

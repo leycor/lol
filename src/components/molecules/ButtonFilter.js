@@ -1,7 +1,6 @@
 import React from 'react'
 
 const ButtonFilter = ({handleChangeTags, tagNameList, champions, name}) => {
-    console.log(name)
 
     return(
         <button 
