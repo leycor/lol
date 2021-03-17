@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 function CardChampion({id, name, title, tags}) {
 
-    const imgData = `http://ddragon.leagueoflegends.com/cdn/11.5.1/img/champion/${id}.png`
+    const imgData = `https://ddragon.leagueoflegends.com/cdn/11.5.1/img/champion/${id}.png`
     return (
     <div className='flex  flex-col champion px-2 w-36 mb-3 '>
         <Link 

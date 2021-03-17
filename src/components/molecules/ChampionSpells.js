@@ -23,7 +23,7 @@ const ChampionSpells = ({passive, spells, id}) => {
             <div className='flex Pasive'>
                 {/* <div style={{ backgroundImage: `url(${`http://ddragon.leagueoflegends.com/cdn/11.6.1/img/passive/${`${passive.image.full}`}`})`}} className='mr-5 w-10 h-10 bg-no-repeat bg-cover bg-center mb-3'></div> */}
                 <img 
-                src={`http://ddragon.leagueoflegends.com/cdn/11.6.1/img/passive/${passive.image.full}`}
+                src={`https://ddragon.leagueoflegends.com/cdn/11.6.1/img/passive/${passive.image.full}`}
                 alt={passive.name}
                 className='mr-4 w-20 h-20 object-cover'/>
                 <div>

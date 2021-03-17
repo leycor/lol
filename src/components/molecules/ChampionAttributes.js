@@ -4,7 +4,7 @@ const ChampionAttributes = ({id, tags, info}) => (
 
     <div className='flex mb-5'>
         <div 
-        style={{ backgroundImage: `url(${`http://ddragon.leagueoflegends.com/cdn/11.5.1/img/champion/${`${id}`}.png`})`}}
+        style={{ backgroundImage: `url(${`https://ddragon.leagueoflegends.com/cdn/11.5.1/img/champion/${`${id}`}.png`})`}}
         className='flex flex-col  items-end justify-end mr-3 h-20 w-20 bg-no-repeat bg-cover bg-center'>
 
             {

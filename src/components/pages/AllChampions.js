@@ -42,7 +42,7 @@ const AllChampions = () => {
 
     // Recibir todos los campeones | Colocarlos en una lista | Actualizar State
     const getData = async() => {
-        const respChampion = await fetch('http://ddragon.leagueoflegends.com/cdn/11.5.1/data/en_US/champion.json')
+        const respChampion = await fetch('https://ddragon.leagueoflegends.com/cdn/11.5.1/data/en_US/champion.json')
         const { data } = await respChampion.json()
         const dataList = Object.values( data )
         setChampions({champions:dataList, loading: false})

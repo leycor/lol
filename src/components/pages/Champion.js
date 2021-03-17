@@ -13,7 +13,7 @@ const Champion = () => {
 
 
     const getChampionData = async(paramIdChampion ) => {
-        const resp = await fetch(`http://ddragon.leagueoflegends.com/cdn/11.6.1/data/en_US/champion/${paramIdChampion.champion}.json`)
+        const resp = await fetch(`https://ddragon.leagueoflegends.com/cdn/11.6.1/data/en_US/champion/${paramIdChampion.champion}.json`)
         const { data } = await resp.json()
         setChampion(data.valueOf()[`${paramIdChampion.champion}`])
         setLoading(false)
@@ -38,7 +38,7 @@ const Champion = () => {
                 (
 
                     <div 
-                    style={{backgroundImage: `url(${`http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${`${champion.id}`}_0.jpg`})`}} 
+                    style={{backgroundImage: `url(${`https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${`${champion.id}`}_0.jpg`})`}} 
                     className='min-h-screen bg-cover'>
                         <div className='grid md:grid-cols-2  bg-gradient-to-r from-black via-transparent to-black min-h-screen'>
                             <div className='pt-10  px-5 md:px-10 container mx-auto'>
