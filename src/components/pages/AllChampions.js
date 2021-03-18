@@ -91,7 +91,7 @@ const AllChampions = () => {
                             </div>
 
                             {/* Listar campeones */}
-                            <div className='flex flex-wrap justify-center'>
+                            <div className='justify-items-center grid gap-4 grid-cols-2 sm2:grid-cols-3 md:grid-cols-4 md2:grid-cols-5 lg:grid-cols-10'>
                             {
                                 championWithTags.length > 0
                                 ?

@@ -5,7 +5,7 @@ function CardChampion({id, name, title, tags}) {
 
     const imgData = `https://ddragon.leagueoflegends.com/cdn/11.5.1/img/champion/${id}.png`
     return (
-    <div className='flex  flex-col champion px-2 w-36 mb-3 '>
+    <div className='grid w-32 px-4 champion'>
         <Link 
         to={`/${id}`}
         className='hover:opacity-80 duration-300 flex flex-col justify-end items-end w-20 h-20 md:w-24 md:h-24 bg-center bg-cover bg-no-repeat mb-1' 
